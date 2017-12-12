@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Anton|Montserrat:900');
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+    color: black;
+    display: inline;
+}
+
+p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 50px;
+    color: #EE382A;
+}
+
+.btn-lg {
+    background-color: #EE382A;
+    color: white;
+    border: none;
+    height: 46px;
+    width: 170px;
+}
+
+form {
+    display: inline;
+    padding: 10px;
+}
+
+.login {
+    height: 46px;
+    width: 170px;
+    display: inline;
+    color: white;
+    background-color: #EE382A;
+    border: none;
+}
+
+label {
+    color: #EE382A;
+    font-size: 18px;
+}
+
+.form-control {
+    color: black;
+    border: 1px solid black;
+}
+
+h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 33px;
+    color: black;
+}
+
+.btn-md {
+    background-color: #EE382A;
+    color: white;
+    border: none;
+}
+
+.bike {
+    background-image: url("/resources/images/crop.jpg");
+}
