@@ -206,13 +206,17 @@ public class DAO {
                     DAOCredentials.USERNAME,
                     DAOCredentials.PASSWORD);
 
-            PreparedStatement readDelete = mysqlConnection.prepareStatement("Delete from userinfo where UserId = ?");
+            PreparedStatement readDeleteUser = mysqlConnection.prepareStatement("Delete from userinfo where UserId = ?");
 
-            readDelete.setInt(1, userId);
+            readDeleteUser.setInt(1, userId);
 
-            System.out.println(userId);
+            boolean result = readDeleteUser.execute();
 
-            boolean result = readDelete.execute();
+            PreparedStatement readDeleteRequests = mysqlConnection.prepareStatement("Delete from request where UserId = ?");
+
+            readDeleteRequests.setInt(1, userId);
+
+            boolean results = readDeleteRequests.execute();
 
             return true;
 
@@ -238,24 +242,19 @@ public class DAO {
 
             String readEmailCommand = "select email from userinfo";
             Statement readEmailList = mysqlConnection.createStatement();// creates the statement
-            System.out.println("reademaillist: " + readEmailList);
 
             ResultSet results = readEmailList.executeQuery(readEmailCommand);
-            System.out.println("results: " + results);
 
             while (results.next() == true) {
                 String emailFromDb = results.getString(1);
-                System.out.println("emailfromDB" + emailFromDb);
 
                 if (email.equals(emailFromDb)) {
-                    System.out.println("works here");
+
                     PreparedStatement readPasswordCommand = mysqlConnection.prepareStatement("select passEncrypted from userinfo where email LIKE ? ");
 
                     readPasswordCommand.setString(1, email);
 
                     ResultSet result = readPasswordCommand.executeQuery();
-
-                    System.out.println(result);
 
                     while (result.next() == true) {
 
@@ -277,8 +276,6 @@ public class DAO {
 
                             while (resultofUserId.next() == true) {
                                 int UserId = resultofUserId.getInt(1);
-
-                                System.out.println(UserId);
 
                                 return UserId;
                             }
@@ -318,6 +315,19 @@ public class DAO {
                     DAOCredentials.USERNAME,
                     DAOCredentials.PASSWORD);
 
+            String readPhoneNumberCmd = "select phoneNumber from userinfo";
+            Statement readphoneNumber = mysqlConnection.createStatement();
+
+            ResultSet results = readphoneNumber.executeQuery(readPhoneNumberCmd);
+
+            while(results.next() == true) {
+                String phoneNumberDB = results.getString(1);
+
+                if (phoneNumber.equals(phoneNumberDB)) {
+                    return false;
+                }
+            }
+
             StrongPasswordEncryptor enc = new StrongPasswordEncryptor();
 
             String passEncrypted = enc.encryptPassword(password);
@@ -335,13 +345,12 @@ public class DAO {
                     passEncrypted + "', '" +
                     profilePicture + "')";
 
-            System.out.println("SQL Query " + addCustomerCommand);
-
             Statement st = mysqlConnection.createStatement();
 
             int result = st.executeUpdate(addCustomerCommand);
 
             return true;
+
 
         } catch (Exception ex) {
             ex.printStackTrace();

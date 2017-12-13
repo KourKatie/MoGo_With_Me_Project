@@ -18,7 +18,7 @@
         UPLOADCARE_PUBLIC_KEY = 'e71a6ed89f8acaed4d28';
     </script>
     <style>
-        @import url('https://fonts.googleapis.com/css?family=Anton|Montserrat:900');
+        @import url('https://fonts.googleapis.com/css?family=Anton|Montserrat:900|Roboto:700');
         body {
             font-family: 'Varela', sans-serif;
             font-size: 18px;
@@ -120,9 +120,7 @@
                 </div>
                 <button type="submit" class="btn btn-default btn-lg" onclick="return validate()">Sign Up</button>
             </form>
-                <%--<form action="/createAccount">--%>
-                <%--<button type="submit" class="btn btn-default btn-lg">Create An Account</button>--%>
-                <%--</form>--%>
+
 </div>
         <div class="col-lg-1 col-md-1 hidden-sm hidden-xs">
         </div>

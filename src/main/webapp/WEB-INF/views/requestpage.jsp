@@ -24,7 +24,6 @@
         @import url('https://fonts.googleapis.com/css?family=Anton|Montserrat:900');
     </style>
 
-
     <link href="/resources/css/requeststyle.css" rel="stylesheet">
 
 </head>

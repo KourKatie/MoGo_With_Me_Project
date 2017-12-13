@@ -19,17 +19,24 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <link href="/resources/css/account.css" rel="stylesheet">
+    <link href="/resources/css/home.css" rel="stylesheet">
 
 </head>
 <body>
-
+<div class="fluid-container">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-left: 40px; padding-top: 1em; padding-bottom: 1em; border-bottom: 2px solid black;">
+            <h4>MoGo With Me</h4>
+        </div>
+    </div>
+</div>
 <div class="container">
     <div class="row">
         <div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
         </div>
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <h3>Congratulations! Your MoGo With Me account has been created. Please use your credentials to login.</h3>
+            <p style="text-align: center; padding-top: 20px;">Congratulations! Your MoGo With Me account has been created. Please use your credentials to login.</p>
+            <h3 style="text-align: center;">Login</h3>
 <form name="loginform" action="/verifylogin" method="post">
     <div class="form-group">
         <label>Email</label>

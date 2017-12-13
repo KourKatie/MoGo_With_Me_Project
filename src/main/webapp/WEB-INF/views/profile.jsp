@@ -27,6 +27,10 @@
             alert("You are about to delete your account! This action can not be undone.")
         }
     </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Anton|Montserrat:900|Roboto');
+    </style>
 </head>
 
 <body>
@@ -39,22 +43,24 @@
         <div class="col-lg-2 col-md-2 hidden-sm hidden-xs">
         </div>
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-<c:forEach items="${ppdata}" var="item">
+
+            <c:forEach items="${ppdata}" var="item">
     <img src= "${item.profilePicture}" width="375" height="375">
 </div>
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
             <h2>Basic Information</h2>
-        <p>First Name: ${item.firstName} </p>
-        <p>Last Name: ${item.lastName} </p>
-        <p>Email: ${item.email} </p>
-        <p>Phone Number: ${item.phoneNumber} </p>
-        <p>Company: ${item.company}</p>
-        <p>Gender: ${item.gender} </p>
+
+            <p>First Name: ${item.firstName}</p>
+            <p>Last Name: ${item.lastName}</p>
+            <p>Email: ${item.email}</p>
+            <p>Phone Number: ${item.phoneNumber}</p>
+            <p>Company: ${item.company}</p>
+            <p>Gender: ${item.gender}</p>
 
             <%--<button type="submit" name="Update" class="btn btn-default btn-md">Update</button>--%>
 
             <form action="/deleteUser" name="delete" id="delete">
-            <button type="submit" name="Delete" class="btn btn-default btn-md" onclick="confirmDelete()">Delete</button>
+            <button type="submit" name="Delete" class="btn btn-default btn-md" onclick="confirmDelete()">Delete Account</button>
                 <input type="hidden" name="userId" value="${item.userId}">
             </form>
 

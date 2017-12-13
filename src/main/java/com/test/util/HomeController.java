@@ -26,8 +26,7 @@ public class HomeController {
     @RequestMapping("/")
     public ModelAndView welcome() {
 
-        return new ModelAndView("welcome", "message",
-                "Please choose from the below options.");
+        return new ModelAndView("welcome");
     }
 
     @RequestMapping("/verifylogin")
@@ -102,10 +101,10 @@ public class HomeController {
     ) {
 
         //add the info to DB through DAO
-        boolean result = DAO.addCustomer(FirstName, LastName, email, phoneNumber,Company, gender, password, profilePicture);
+        boolean results = DAO.addCustomer(FirstName, LastName, email, phoneNumber,Company, gender, password, profilePicture);
 
         //best to check the result
-        if (result == false) {
+        if (results == false) {
             //still have to write this view
             return new ModelAndView("emailError", "errmsg", "customer add failed");
         }
